@@ -17,7 +17,14 @@ function Contactpage() {
           <div className="side-img">
             <img src={flowerImg} alt="" />
           </div>
-          <form action="" method="post" data-netlify="true" onSubmit="submit">
+          <form
+            action=""
+            method="post"
+            data-netlify="true"
+            onSubmit="submit"
+            data-netlify-honeypot="bot-field"
+          >
+            <input class="d-none" name="bot-field" />
             <input
               type="text"
               id="name"
