@@ -19,13 +19,13 @@ function Contactpage() {
           </div>
           <form
             name="contact"
-            netflify
             method="POST"
             data-netlify="true"
             onSubmit="submit"
-            data-netlify-honeypot="bot-field"
+            // data-netlify-honeypot="bot-field"
           >
-            <input class="d-none" name="bot-field" />
+            <input type="hidden" name="form-name" value="contact" />
+            {/* <input class="d-none" name="bot-field" /> */}
             <input
               type="text"
               id="name"
@@ -43,7 +43,7 @@ function Contactpage() {
               name="message"
               placeholder="Message..."
             ></textarea>
-            <input type="submit" value="Submit"></input>
+            <input type="submit" value="submit"></input>
           </form>
         </div>
       </div>
