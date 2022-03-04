@@ -18,8 +18,8 @@ function Contactpage() {
             <img src={flowerImg} alt="" />
           </div>
           <form
-            action=""
-            method="post"
+            name="contact"
+            method="POST"
             data-netlify="true"
             onSubmit="submit"
             data-netlify-honeypot="bot-field"
