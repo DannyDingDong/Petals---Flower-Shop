@@ -19,6 +19,7 @@ function Contactpage() {
           </div>
           <form
             name="contact"
+            netflify
             method="POST"
             data-netlify="true"
             onSubmit="submit"
