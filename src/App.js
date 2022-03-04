@@ -6,6 +6,7 @@ import Productpage from "./Pages/ProductsPage";
 import Homepage from "./Pages/HomePage";
 import Product from "./Pages/Product";
 import Cart from "./Pages/Cart";
+import SuccessPage from "./Pages/SuccessPage";
 import DropDownCart from "./Components/DropDownCart";
 import { useState } from "react";
 import Footer from "./Components/Footer";
@@ -71,6 +72,7 @@ function App() {
           path="/Shop/:id"
           element={<Product onAdd={onAdd} showPopUp={showPopUp} />}
         />
+        <Route path="/Contact/Success" element={<SuccessPage />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

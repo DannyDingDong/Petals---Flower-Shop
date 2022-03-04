@@ -34,6 +34,7 @@ const ContactForm = () => {
         name="contact v1"
         method="post"
         data-netlify="true"
+        action="/Success"
         onSubmit="submit"
       >
         <input type="hidden" name="form-name" value="contact v1" />
