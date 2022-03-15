@@ -1,48 +1,60 @@
 import React from "react";
 import flowerImg from "../Assets/img/contactFlower.jpg";
+import emailjs from "emailjs-com";
+import { useState } from "react";
 const ContactForm = () => {
+  const [submitted, setSubmitted] = useState(true);
+  function sendEmail(e) {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_y8fkstf",
+        "template_f1q77wf",
+        e.target,
+        "5uFW0jhnCtWV0T2tu"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    setSubmitted(false);
+  }
   return (
     <div className="contact-form">
       <div className="side-img">
         <img src={flowerImg} alt="" />
       </div>
-      {/* <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        onSubmit="submit"
-        // data-netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        {/* <input class="d-none" name="bot-field" /> */}
-      {/* <input type="text" id="name" name="name" placeholder="Name..."></input>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          placeholder="Email..."
-        ></input>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Message..."
-        ></textarea>
-        <input type="submit" value="SUBMIT"></input>
-      </form> */}
-
-      <form
-        name="contact v1"
-        method="post"
-        data-netlify="true"
-        action="/Success"
-        onSubmit="submit"
-      >
-        <input type="hidden" name="form-name" value="contact v1" />
-        <input type="text" name="first-name" />
-        <input type="email" name="email" />
-        <textarea name="comments" />
-        <button type="submit">Submit</button>
-      </form>
+      {submitted ? (
+        <form onSubmit={sendEmail}>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name..."
+            required
+          ></input>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Email..."
+            required
+          ></input>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Message..."
+            required
+          ></textarea>
+          <input type="submit" value="SUBMIT"></input>
+        </form>
+      ) : (
+        <div className="onSubmitMessage">Thanks for emailing.</div>
+      )}
     </div>
   );
 };

@@ -71,6 +71,7 @@ function App() {
         <Route
           path="/Shop/:id"
           element={<Product onAdd={onAdd} showPopUp={showPopUp} />}
+          // element={(props) => <Product {...props} />}
         />
         <Route path="/Contact/Success" element={<SuccessPage />}></Route>
       </Routes>

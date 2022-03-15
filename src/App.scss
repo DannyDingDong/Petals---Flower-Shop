@@ -59,6 +59,24 @@ $greenbtn: #66a46c;
   display: none;
 }
 
+.loading {
+  height: 0;
+  width: 0;
+  padding: 15px;
+  border: 6px solid $base-color;
+  border-right-color: white;
+  border-radius: 22px;
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  /* 100% keyframe for  clockwise. 
+     use 0% instead for anticlockwise */
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 /*  Nav Bar Styles */
 
 nav {
@@ -108,6 +126,59 @@ nav {
         }
       }
     }
+  }
+}
+
+.mobileNav {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  nav .nav-wrapper {
+    flex-direction: column;
+    .center-nav {
+      height: 0px;
+      overflow: hidden;
+      transition: height 0.3s ease-in-out;
+      ul {
+        li {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .navShow {
+    height: 150px !important;
+    transition: height 0.3s ease-in-out;
+  }
+
+  .mobileNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    .mobile-nav-middle {
+      img {
+        width: 100px;
+      }
+    }
+    .mobile-nav-right {
+      a {
+        svg {
+          font-size: 2rem;
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
+
+  .left-nav {
+    display: none;
+  }
+  .right-nav {
+    display: none;
   }
 }
 
@@ -161,6 +232,7 @@ nav {
   display: flex;
   justify-content: space-around;
   padding: 2rem 0rem;
+  align-items: end;
   h5 {
     font-size: 1.25rem;
     font-weight: bold;
@@ -183,6 +255,10 @@ nav {
   // grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   margin-top: 3rem;
   margin-bottom: 3rem;
+  a {
+    justify-self: center;
+    text-decoration: none;
+  }
 }
 
 .product {
@@ -216,6 +292,31 @@ nav {
       font-size: 1.5rem;
       color: black;
     }
+  }
+}
+
+.centered-loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0rem 3rem 0rem;
+}
+
+.searchBtn {
+  font-family: $mainFont;
+  font-weight: 1000;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  height: 100%;
+  padding: 0.2rem 2rem;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+    background-color: $offGrey;
   }
 }
 
@@ -463,6 +564,7 @@ nav {
   letter-spacing: 1.2px;
   font-size: 1.2rem;
   padding: 0.2rem;
+  z-index: 3;
   h4 {
     text-align: center;
   }
@@ -825,6 +927,40 @@ nav {
       margin-bottom: 3rem;
     }
   }
+
+  //  Shopping Cart Tablet
+
+  .cart-grid {
+    grid-template-columns: 100%;
+  }
+  .cart-items {
+    margin: 0rem 1rem;
+  }
+  .checkout-total-delivery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    .total {
+      margin-left: 0rem;
+    }
+    .delivery-message {
+      margin-left: 0rem;
+    }
+  }
+
+  // Contact Form Tablet
+  .contact-form {
+    flex-direction: column;
+    max-width: 600px !important;
+    margin: auto !important;
+    margin-bottom: 4rem !important;
+    margin-top: 4rem !important;
+  }
+  .side-img {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -856,9 +992,58 @@ nav {
       height: 75%;
     }
   }
+
+  .search-bar-wrapper {
+    flex-wrap: wrap;
+    ul {
+      padding: 0.4rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  // Contact Form Mobile
+  .contact-form {
+    flex-direction: column;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+  .side-img {
+    display: none;
+  }
+
+  //  Shopping Cart Mobile
+
+  .cart-grid {
+    grid-template-columns: 100%;
+  }
+  .cart-items {
+    margin: 0rem 1rem;
+  }
+  .checkout-total-delivery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    .total {
+      margin-left: 0rem;
+    }
+    .delivery-message {
+      margin-left: 0rem;
+    }
+  }
 }
 
 // Contact Form ####################################################
+
+.onSubmitMessage {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  font-family: $mainFont;
+  letter-spacing: 2px;
+  font-size: 1.3rem;
+}
 
 .contact-title {
   text-align: center;
@@ -880,6 +1065,7 @@ nav {
   margin: auto;
   border: solid 1px rgba(0, 0, 0, 0.2);
   margin-bottom: 5rem;
+  margin-top: 4rem;
   form {
     padding: 2rem;
     margin: auto;
