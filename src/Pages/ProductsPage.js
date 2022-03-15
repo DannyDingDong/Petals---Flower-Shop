@@ -2,7 +2,6 @@ import "../App.scss";
 import Data from "../Data/ProductData";
 import { useEffect, useState, useRef, componentDidMount } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { ListItemSecondaryAction } from "@material-ui/core";
 function Productpage() {
   const [apiData, setApiData] = useState([]);
   const [sizeVal, setSize] = useState("");
